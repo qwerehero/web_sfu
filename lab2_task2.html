@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Лабораторная работа №2, задание 2: FlexBox-макет (вариант 5)</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; background: #000; color: #fff; font: 16px Arial, sans-serif; }
+.page { max-width: 1200px; margin: 0 auto; }
+.red, .pink, .green, .orange, .brown { display: flex; }
+.c { display: flex; align-items: center; justify-content: center; height: 150px; padding: 15px; background-clip: content-box; text-align: center; }
+
+.c10 { background-color: #CD5C5C; } .c11 { background-color: #DC143C; } .c12 { background-color: #8B0000; }
+.c20 { background-color: #FFC0CB; } .c21 { background-color: #FF69B4; } .c22 { background-color: #C71585; }
+.c30 { background-color: #ADFF2F; } .c31 { background-color: #00FF00; } .c32 { background-color: #32CD32; }
+.c33 { background-color: #00FA9A; } .c34 { background-color: #2E8B57; } .c35 { background-color: #006400; }
+.c36 { background-color: #9ACD32; } .c37 { background-color: #808000; }
+.c50 { background-color: #FFA07A; } .c51 { background-color: #FF4500; } .c52 { background-color: #FFA500; }
+.c60 { background-color: #BC8F8F; } .c61 { background-color: #F4A460; } .c62 { background-color: #D2691E; }
+.c63 { background-color: #8B4513; } .c64 { background-color: #A52A2A; } .c65 { background-color: #800000; }
+
+/* 1200px */
+.red .c { width: 25%; }
+.red .c11 { width: 50%; }
+.pa { display: flex; flex-direction: column; width: 66.667%; }
+.c22 { width: 33.333%; height: 300px; }
+.gl { display: flex; flex-wrap: wrap; width: 75%; }
+.gr { display: flex; flex-direction: column; width: 25%; }
+.c30 { height: 150px; }
+.c31 { height: 300px; }
+.c32, .c35, .c36 { width: 25%; }
+.c33, .c34, .c37 { width: 75%; }
+.orange { justify-content: space-around; }
+.orange .c { width: 16.667%; }
+.ba { display: flex; flex-direction: column; width: 25%; }
+.c62 { width: 25%; height: 300px; }
+.bc { display: flex; flex-wrap: wrap; width: 50%; }
+.c63 { width: 100%; }
+.c64, .c65 { width: 50%; }
+
+/* 768px */
+@media (max-width: 1199px) {
+  body { font-size: 14px; }
+  .red .c, .red .c11 { width: 33.333%; }
+  .pa { width: 50%; }
+  .c22 { width: 50%; }
+  .c30 { display: none; }
+  .c31 { height: 450px; }
+  .c32, .c35, .c36 { width: 33.333%; }
+  .c33, .c34, .c37 { width: 66.667%; }
+  .orange .c { width: 33.333%; }
+  .brown { flex-wrap: wrap; }
+  .ba, .bc { display: contents; }
+  .c60, .c61, .c64, .c65 { width: 25%; }
+  .c62, .c63 { width: 50%; height: 150px; }
+}
+
+/* 320px */
+@media (max-width: 767px) {
+  body { font-size: 12px; }
+  .c11 { display: none; }
+  .red .c { width: 50%; }
+  .pink, .green { flex-direction: column; }
+  .pa, .c22, .gl, .gr { width: 100%; }
+  .c31 { height: 150px; }
+  .c32, .c33, .c34, .c35, .c36, .c37 { width: 50%; }
+  .c50 { display: none; }
+  .orange .c { width: 50%; }
+  .c60, .c61, .c64, .c65 { width: 50%; }
+  .c63 { width: 100%; height: 300px; order: 3; }
+  .c62 { width: 100%; height: 300px; order: 4; }
+  .c64 { order: 5; }
+  .c65 { order: 6; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="red">
+    <div class="c c10">#CD5C5C</div>
+    <div class="c c11">#DC143C</div>
+    <div class="c c12">#8B0000</div>
+  </div>
+  <div class="pink">
+    <div class="pa">
+      <div class="c c20">#FFC0CB</div>
+      <div class="c c21">#FF69B4</div>
+    </div>
+    <div class="c c22">#C71585</div>
+  </div>
+  <div class="green">
+    <div class="gl">
+      <div class="c c32">#32CD32</div>
+      <div class="c c33">#00FA9A</div>
+      <div class="c c34">#2E8B57</div>
+      <div class="c c35">#006400</div>
+      <div class="c c36">#9ACD32</div>
+      <div class="c c37">#808000</div>
+    </div>
+    <div class="gr">
+      <div class="c c30">#ADFF2F</div>
+      <div class="c c31">#00FF00</div>
+    </div>
+  </div>
+  <div class="orange">
+    <div class="c c50">#FFA07A</div>
+    <div class="c c51">#FF4500</div>
+    <div class="c c52">#FFA500</div>
+  </div>
+  <div class="brown">
+    <div class="ba">
+      <div class="c c60">#BC8F8F</div>
+      <div class="c c61">#F4A460</div>
+    </div>
+    <div class="c c62">#D2691E</div>
+    <div class="bc">
+      <div class="c c63">#8B4513</div>
+      <div class="c c64">#A52A2A</div>
+      <div class="c c65">#800000</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
